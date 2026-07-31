@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,7 +19,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <body>
 
-<!-- HEADER START -->
+<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -32,13 +34,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <nav>
 
 <a href="#home">Home</a>
-
 <a href="#about">About</a>
-
 <a href="#menu">Menu</a>
-
 <a href="#gallery">Gallery</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
@@ -46,30 +44,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <div class="header-buttons">
 
 <button id="callBtn">
-
 <i class="fa-solid fa-phone"></i>
-
 Call
-
 </button>
 
 <button id="cartBtn">
-
 <i class="fa-solid fa-cart-shopping"></i>
-
 Cart (<span id="cartCount">0</span>)
-
 </button>
 
 </div>
 
 </header>
 
-<!-- HEADER END -->
-
-
-
-<!-- HERO SECTION -->
+<!-- ================= HERO ================= -->
 
 <section id="home" class="hero">
 
@@ -88,26 +76,18 @@ Delicious Food • Family Dining • Home Delivery
 </p>
 
 <button id="orderNow">
-
 Order Now
-
 </button>
 
 <button id="bookTable">
-
 Book Table
-
 </button>
 
 </div>
 
 </section>
 
-<!-- HERO END -->
-
-
-
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
@@ -119,17 +99,13 @@ Welcome to Kalpvriksha – A Family Restaurant.
 
 We serve fresh, hygienic and delicious food with the best hospitality.
 
-Veg, Non-Veg, Chinese, Tandoor, Biryani and Beverages are available.
+Veg • Non-Veg • Chinese • Tandoor • Biryani • Beverages Available.
 
 </p>
 
 </section>
 
-<!-- ABOUT END -->
-
-
-
-<!-- FEATURES -->
+<!-- ================= FEATURES ================= -->
 
 <section class="features">
 
@@ -153,14 +129,13 @@ Veg, Non-Veg, Chinese, Tandoor, Biryani and Beverages are available.
 
 <h3>🚚 Home Delivery</h3>
 
-<p>Available only within 10 KM.</p>
+<p>Delivery available only within 10 KM.</p>
 
 </div>
 
 </section>
 
-<!-- FEATURES END -->
-<!-- ================= MENU SECTION ================= -->
+<!-- ================= DIGITAL MENU ================= -->
 
 <section id="menu" class="menu">
 
@@ -175,93 +150,91 @@ placeholder="🔍 Search Food...">
 
 <div class="category">
 
-<button class="active">All</button>
+<button class="active" data-category="all">All</button>
 
-<button>Veg</button>
+<button data-category="veg">Veg</button>
 
-<button>Non Veg</button>
+<button data-category="nonveg">Non Veg</button>
 
-<button>Chinese</button>
+<button data-category="chinese">Chinese</button>
 
-<button>Biryani</button>
+<button data-category="biryani">Biryani</button>
 
-<button>Tandoor</button>
+<button data-category="tandoor">Tandoor</button>
 
-<button>Beverages</button>
+<button data-category="beverages">Beverages</button>
 
 </div>
 
-<div class="menu-grid">
-
-<div class="food-card">
+<div class="menu-grid" id="menuGrid"><div class="food-card" data-category="biryani">
 
 <img src="images/chicken-biryani.jpg" alt="Chicken Biryani">
 
 <h3>Chicken Biryani</h3>
 
-<p>₹265</p>
+<p class="price">₹265</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
-<div class="food-card">
+<div class="food-card" data-category="veg">
 
 <img src="images/paneer-butter.jpg" alt="Paneer Butter Masala">
 
 <h3>Paneer Butter Masala</h3>
 
-<p>₹240</p>
+<p class="price">₹240</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
-<div class="food-card">
+<div class="food-card" data-category="nonveg">
 
 <img src="images/chicken-handi.jpg" alt="Chicken Handi">
 
 <h3>Chicken Handi</h3>
 
-<p>₹465</p>
+<p class="price">₹465</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
-<div class="food-card">
+<div class="food-card" data-category="chinese">
 
 <img src="images/veg-chowmein.jpg" alt="Veg Chowmein">
 
 <h3>Veg Chowmein</h3>
 
-<p>₹125</p>
+<p class="price">₹125</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
-<div class="food-card">
+<div class="food-card" data-category="tandoor">
 
 <img src="images/tandoori-chicken.jpg" alt="Tandoori Chicken">
 
 <h3>Tandoori Chicken</h3>
 
-<p>₹420</p>
+<p class="price">₹420</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
-<div class="food-card">
+<div class="food-card" data-category="beverages">
 
 <img src="images/cold-coffee.jpg" alt="Cold Coffee">
 
 <h3>Cold Coffee</h3>
 
-<p>₹120</p>
+<p class="price">₹120</p>
 
-<button>Add to Cart</button>
+<button class="addCart">Add to Cart</button>
 
 </div>
 
@@ -269,7 +242,7 @@ placeholder="🔍 Search Food...">
 
 </section>
 
-<!-- ================= DELIVERY INFO ================= -->
+<!-- ================= DELIVERY ================= -->
 
 <section class="delivery">
 
@@ -287,7 +260,11 @@ Check Delivery Area
 
 </button>
 
-  </section><!-- ================= CART SECTION ================= -->
+<p id="deliveryStatus"></p>
+
+</section>
+
+<!-- ================= CART ================= -->
 
 <section id="cart" class="cart">
 
@@ -299,89 +276,23 @@ Check Delivery Area
 
 </div>
 
-<h3>Total : ₹<span id="totalPrice">0</span></h3>
-
-<button id="checkoutBtn">
-
-Proceed To Checkout
-
-</button>
-
-</section>
-
-<!-- ================= GALLERY ================= -->
-
-<section id="gallery" class="gallery">
-
-<h2>Restaurant Gallery</h2>
-
-<div class="gallery-grid">
-
-<img src="images/exterior.jpg" alt="Restaurant Exterior">
-
-<img src="images/interior1.jpg" alt="Interior">
-
-<img src="images/interior2.jpg" alt="Dining Area">
-
-<img src="images/interior3.jpg" alt="Family Hall">
-
-</div>
-
-</section>
-
-<!-- ================= CUSTOMER REVIEWS ================= -->
-
-<section class="reviews">
-
-<h2>Customer Reviews</h2>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐
-
-<p>Excellent food and great family atmosphere.</p>
-
-<h4>- Rahul Kumar</h4>
-
-</div>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐
-
-<p>Best restaurant near Trends Mall.</p>
-
-<h4>- Priya Singh</h4>
-
-</div>
-
-</section>
-
-<!-- ================= CONTACT ================= -->
+<h3>Total : ₹<span id="totalPrice">0</span></h3><!-- ================= CONTACT ================= -->
 
 <section id="contact" class="contact">
 
 <h2>Contact Us</h2>
 
-<p>
+<p>📍 Near Trends Mall, Marhowrah, Bihar</p>
 
-📍 Near Trends Mall, Marhowrah, Bihar
+<p>📞 <a href="tel:+917352585780">7352585780</a></p>
 
-</p>
+<p>🚚 Home Delivery Available Within 10 KM</p>
 
-<p>
-
-📞 7352585780
-
-</p>
-
-<p>
-
-🚚 Home Delivery Within 10 KM
-
-</p>
+<div class="contact-buttons">
 
 <button id="callButton">
+
+<i class="fa-solid fa-phone"></i>
 
 Call Now
 
@@ -389,9 +300,27 @@ Call Now
 
 <button id="whatsappButton">
 
+<i class="fa-brands fa-whatsapp"></i>
+
 WhatsApp Order
 
 </button>
+
+<a
+href="https://maps.google.com/?q=Trends+Mall+Marhowrah+Bihar"
+target="_blank">
+
+<button id="mapButton">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Open Google Maps
+
+</button>
+
+</a>
+
+</div>
 
 </section>
 
@@ -405,7 +334,20 @@ WhatsApp Order
 
 </p>
 
-  </footer>
+<p>
+
+Made with ❤️ in Bihar
+
+</p>
+
+</footer>
+
+<!-- ================= FIREBASE ================= -->
+
+<script type="module" src="firebase.js"></script>
+
+<!-- ================= WEBSITE SCRIPT ================= -->
+
 <script src="script.js"></script>
 
 </body>
