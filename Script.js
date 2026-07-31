@@ -1,144 +1,113 @@
-// ===============================
+// =====================================
 // KALPVRIKSHA RESTAURANT
 // SCRIPT.JS PART 1
-// ===============================
+// =====================================
 
-// Cart Variables
+// ---------- CART ----------
 
-let cart = [];
-
-let total = 0;
-
-// HTML Elements
-
-const cartCount = document.getElementById("cartCount");
-
-const totalPrice = document.getElementById("totalPrice");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const totalPrice = document.getElementById("totalPrice");
 
-// ===============================
-// ADD TO CART
-// ===============================
+// ---------- SAVE CART ----------
 
-const cartButtons = document.querySelectorAll(".food-card button");
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-cartButtons.forEach((button)=>{
+// ---------- UPDATE CART ----------
 
-button.addEventListener("click",()=>{
+function updateCart() {
 
-const card = button.parentElement;
+    if (!cartItems) return;
 
-const foodName = card.querySelector("h3").innerText;
+    cartItems.innerHTML = "";
 
-const foodPrice = parseInt(
+    let total = 0;
 
-card.querySelector("p")
+    cart.forEach((item, index) => {
 
-.innerText.replace("₹","")
+        total += item.price;
 
-);
+        cartItems.innerHTML += `
+        <div class="cart-item">
 
-cart.push({
+            <h4>${item.name}</h4>
 
-name:foodName,
+            <p>₹${item.price}</p>
 
-price:foodPrice
+            <button onclick="removeItem(${index})">
+            Remove
+            </button>
 
-});
+        </div>
+        `;
 
-total += foodPrice;
+    });
 
-updateCart();
+    if (cart.length === 0) {
 
-});
+        cartItems.innerHTML = "<p>Your Cart is Empty</p>";
 
-});
+    }
 
-// ===============================
-// UPDATE CART
-// ===============================
+    cartCount.innerText = cart.length;
 
-function updateCart(){
+    totalPrice.innerText = total;
 
-cartCount.innerText = cart.length;
-
-totalPrice.innerText = total;
-
-cartItems.innerHTML = "";
-
-if(cart.length===0){
-
-cartItems.innerHTML="<p>Your Cart is Empty</p>";
-
-return;
+    saveCart();
 
 }
 
-cart.forEach((item,index)=>{
+// ---------- ADD TO CART ----------
 
-cartItems.innerHTML += `
+document.querySelectorAll(".addCart").forEach(button => {
 
-<div class="cart-item">
+    button.addEventListener("click", () => {
 
-<h4>${item.name}</h4>
+        const card = button.closest(".food-card");
 
-<p>₹${item.price}</p>
+        const item = {
 
-<button onclick="removeItem(${index})">
+            name: card.querySelector("h3").innerText,
 
-Remove
+            price: parseInt(
+                card.querySelector(".price")
+                .innerText.replace("₹","")
+            )
 
-</button>
+        };
 
-</div>
+        cart.push(item);
 
-`;
+        updateCart();
+
+        alert(item.name + " added to cart.");
+
+    });
 
 });
 
-}
-
-// ===============================
-// REMOVE ITEM
-// ===============================
+// ---------- REMOVE ITEM ----------
 
 function removeItem(index){
 
-total -= cart[index].price;
+    cart.splice(index,1);
 
-cart.splice(index,1);
-
-updateCart();
+    updateCart();
 
 }
 
-// ===============================
-// CHECKOUT
-// ===============================
+window.removeItem = removeItem;
 
-const checkoutBtn=document.getElementById("checkoutBtn");
+// ---------- LOAD CART ----------
 
-if(checkoutBtn){
-
-checkoutBtn.addEventListener("click",()=>{
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-alert("Proceeding to Checkout...");
-
-});
-
-  }// ===============================
+updateCart();  // =====================================
+// KALPVRIKSHA RESTAURANT
 // SCRIPT.JS PART 2
-// Search, Category, Call & WhatsApp
-// ===============================
+// =====================================
 
 // ---------- SEARCH MENU ----------
 
@@ -146,29 +115,29 @@ const searchInput = document.getElementById("searchInput");
 
 if (searchInput) {
 
-searchInput.addEventListener("keyup", function () {
+    searchInput.addEventListener("keyup", function () {
 
-const value = this.value.toLowerCase();
+        const value = this.value.toLowerCase();
 
-const cards = document.querySelectorAll(".food-card");
+        document.querySelectorAll(".food-card").forEach(card => {
 
-cards.forEach(card => {
+            const foodName = card.querySelector("h3")
+                .innerText
+                .toLowerCase();
 
-const name = card.querySelector("h3").innerText.toLowerCase();
+            if (foodName.includes(value)) {
 
-if (name.includes(value)) {
+                card.style.display = "";
 
-card.style.display = "block";
+            } else {
 
-} else {
+                card.style.display = "none";
 
-card.style.display = "none";
+            }
 
-}
+        });
 
-});
-
-});
+    });
 
 }
 
@@ -178,107 +147,66 @@ const categoryButtons = document.querySelectorAll(".category button");
 
 categoryButtons.forEach(button => {
 
-button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-categoryButtons.forEach(btn => btn.classList.remove("active"));
+        categoryButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
 
-button.classList.add("active");
+        button.classList.add("active");
 
-const category = button.innerText.toLowerCase();
+        const category = button.dataset.category;
 
-const cards = document.querySelectorAll(".food-card");
+        document.querySelectorAll(".food-card").forEach(card => {
 
-cards.forEach(card => {
+            if (
+                category === "all" ||
+                card.dataset.category === category
+            ) {
 
-const text = card.innerText.toLowerCase();
+                card.style.display = "";
 
-if (category === "all") {
+            } else {
 
-card.style.display = "block";
+                card.style.display = "none";
 
-} else {
+            }
 
-if (text.includes(category)) {
+        });
 
-card.style.display = "block";
-
-} else {
-
-card.style.display = "none";
-
-}
-
-}
-
-});
-
-});
+    });
 
 });
 
 // ---------- CALL BUTTON ----------
 
-const callButton = document.getElementById("callBtn");
+const callBtn = document.getElementById("callBtn");
 
-if (callButton) {
+if (callBtn) {
 
-callButton.addEventListener("click", () => {
+    callBtn.addEventListener("click", () => {
 
-window.location.href = "tel:7352585780";
-
-});
-
-}
-
-// ---------- WHATSAPP BUTTON ----------
-
-const whatsappButton = document.getElementById("whatsappButton");
-
-if (whatsappButton) {
-
-whatsappButton.addEventListener("click", () => {
-
-let message = "Hello Kalpvriksha Restaurant,%0A%0AI want to order:%0A";
-
-cart.forEach(item => {
-
-message += "• " + item.name + " - ₹" + item.price + "%0A";
-
-});
-
-message += "%0ATotal = ₹" + total;
-
-window.open(
-
-"https://wa.me/917352585780?text=" + message,
-
-"_blank"
-
-);
-
-});
-
-                   }// ===============================
+        window.location.href = "  // =====================================
+// KALPVRIKSHA RESTAURANT
 // SCRIPT.JS PART 3
-// Delivery Check & Order System
-// ===============================
+// =====================================
 
-// Restaurant Location (Update if needed)
+// ---------- RESTAURANT LOCATION ----------
+
 const restaurantLocation = {
-    lat: 25.9730,
-    lng: 85.0000
+    lat: 25.6734,
+    lng: 85.1666
 };
 
-// Maximum Delivery Distance
 const MAX_DISTANCE = 10;
 
-// Haversine Formula
+// ---------- DISTANCE CALCULATION ----------
+
 function getDistance(lat1, lon1, lat2, lon2) {
 
     const R = 6371;
 
     const dLat = (lat2 - lat1) * Math.PI / 180;
-
     const dLon = (lon2 - lon1) * Math.PI / 180;
 
     const a =
@@ -288,18 +216,17 @@ function getDistance(lat1, lon1, lat2, lon2) {
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
 
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return R * c;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// Delivery Check Button
+// ---------- DELIVERY CHECK ----------
 
-const deliveryButton = document.getElementById("deliveryCheck");
+const deliveryBtn = document.getElementById("deliveryCheck");
+const deliveryStatus = document.getElementById("deliveryStatus");
 
-if (deliveryButton) {
+if (deliveryBtn) {
 
-    deliveryButton.addEventListener("click", () => {
+    deliveryBtn.addEventListener("click", () => {
 
         if (!navigator.geolocation) {
 
@@ -313,32 +240,27 @@ if (deliveryButton) {
 
             (position) => {
 
-                const userLat = position.coords.latitude;
-
-                const userLng = position.coords.longitude;
-
                 const distance = getDistance(
 
                     restaurantLocation.lat,
                     restaurantLocation.lng,
-                    userLat,
-                    userLng
+
+                    position.coords.latitude,
+                    position.coords.longitude
 
                 );
 
                 if (distance <= MAX_DISTANCE) {
 
-                    alert(
-                        "✅ Delivery Available\nDistance: " +
-                        distance.toFixed(1) +
-                        " KM"
-                    );
+                    deliveryStatus.innerHTML =
+                    "✅ Delivery Available (" +
+                    distance.toFixed(1) +
+                    " KM)";
 
                 } else {
 
-                    alert(
-                        "❌ Sorry!\nHome Delivery is available only within 10 KM."
-                    );
+                    deliveryStatus.innerHTML =
+                    "❌ Delivery is available only within 10 KM.";
 
                 }
 
@@ -356,40 +278,13 @@ if (deliveryButton) {
 
 }
 
-// Checkout Success
+// ---------- PLACE ORDER ----------
 
-if (checkoutBtn) {
+const placeOrderBtn = document.getElementById("placeOrderBtn");
 
-    checkoutBtn.addEventListener("click", () => {
+if (placeOrderBtn) {
 
-        if (cart.length === 0) return;
+    placeOrderBtn.addEventListener("click", () => {
 
-        alert("🎉 Order Placed Successfully!");
-
-    });
-
-}
-
-// Smooth Scroll
-
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            target.scrollIntoView({
-
-                behavior: "smooth"
-
-            });
-
-        }
-
-    });
-
-});
+        const name =
+            document.getElementById("customerName").value.trim    
