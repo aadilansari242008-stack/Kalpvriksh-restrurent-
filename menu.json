@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "name": "Chicken Biryani",
+    "category": "Biryani",
+    "price": 265,
+    "image": "images/chicken-biryani.jpg",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Paneer Butter Masala",
+    "category": "Veg",
+    "price": 240,
+    "image": "images/paneer-butter.jpg",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Chicken Handi",
+    "category": "Non Veg",
+    "price": 465,
+    "image": "images/chicken-handi.jpg",
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "Veg Chowmein",
+    "category": "Chinese",
+    "price": 125,
+    "image": "images/veg-chowmein.jpg",
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "Tandoori Chicken",
+    "category": "Tandoor",
+    "price": 420,
+    "image": "images/tandoori-chicken.jpg",
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "Cold Coffee",
+    "category": "Beverages",
+    "price": 120,
+    "image": "images/cold-coffee.jpg",
+    "available": true
+  }
+    ,
+{
+  "id": 7,
+  "name": "Chicken Fried Rice",
+  "category": "Chinese",
+  "price": 180,
+  "image": "images/chicken-fried-rice.jpg",
+  "available": true
+},
+{
+  "id": 8,
+  "name": "Veg Fried Rice",
+  "category": "Chinese",
+  "price": 140,
+  "image": "images/veg-fried-rice.jpg",
+  "available": true
+},
+{
+  "id": 9,
+  "name": "Butter Naan",
+  "category": "Bread",
+  "price": 35,
+  "image": "images/butter-naan.jpg",
+  "available": true
+},
+{
+  "id": 10,
+  "name": "Butter Roti",
+  "category": "Bread",
+  "price": 20,
+  "image": "images/butter-roti.jpg",
+  "available": true
+},
+{
+  "id": 11,
+  "name": "Mutton Biryani",
+  "category": "Biryani",
+  "price": 350,
+  "image": "images/mutton-biryani.jpg",
+  "available": true
+},
+{
+  "id": 12,
+  "name": "Lassi",
+  "category": "Beverages",
+  "price": 80,
+  "image": "images/lassi.jpg",
+  "available": true
+,
+{
+  "id": 13,
+  "name": "Paneer Chilli",
+  "category": "Starter",
+  "price": 220,
+  "image": "images/paneer-chilli.jpg",
+  "available": true
+},
+{
+  "id": 14,
+  "name": "Chicken Chilli",
+  "category": "Starter",
+  "price": 260,
+  "image": "images/chicken-chilli.jpg",
+  "available": true
+},
+{
+  "id": 15,
+  "name": "Chicken Tikka",
+  "category": "Tandoor",
+  "price": 320,
+  "image": "images/chicken-tikka.jpg",
+  "available": true
+},
+{
+  "id": 16,
+  "name": "Mutton Curry",
+  "category": "Non Veg",
+  "price": 420,
+  "image": "images/mutton-curry.jpg",
+  "available": true
+},
+{
+  "id": 17,
+  "name": "Dal Tadka",
+  "category": "Veg",
+  "price": 180,
+  "image": "images/dal-tadka.jpg",
+  "available": true
+},
+{
+  "id": 18,
+  "name": "Jeera Rice",
+  "category": "Rice",
+  "price": 140,
+  "image": "images/jeera-rice.jpg",
+  "available": true
+},
+{
+  "id": 19,
+  "name": "Mineral Water",
+  "category": "Beverages",
+  "price": 20,
+  "image": "images/mineral-water.jpg",
+  "available": true
+},
+{
+  "id": 20,
+  "name": "Ice Cream",
+  "category": "Dessert",
+  "price": 90,
+  "image": "images/ice-cream.jpg",
+  "available": true
+}
+  ]
