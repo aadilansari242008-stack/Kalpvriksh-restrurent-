@@ -1,0 +1,451 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#111;
+color:#fff;
+line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:#000;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.4);
+}
+
+.logo h2{
+color:#FFD700;
+font-size:28px;
+}
+
+.logo p{
+font-size:13px;
+color:#ddd;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#FFD700;
+}
+
+.header-buttons{
+display:flex;
+gap:10px;
+}
+
+.header-buttons button{
+padding:10px 18px;
+border:none;
+background:#FFD700;
+color:#000;
+font-weight:600;
+border-radius:6px;
+cursor:pointer;
+transition:.3s;
+}
+
+.header-buttons button:hover{
+background:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+height:100vh;
+background:url("images/hero.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.overlay{
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.overlay h4{
+font-size:22px;
+color:#FFD700;
+}
+
+.overlay h1{
+font-size:60px;
+margin:10px 0;
+}
+
+.overlay h2{
+font-size:32px;
+font-weight:500;
+margin-bottom:15px;
+}
+
+.overlay p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.overlay button{
+padding:14px 30px;
+margin:10px;
+border:none;
+border-radius:8px;
+background:#FFD700;
+color:#000;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.overlay button:hover{
+transform:scale(1.05);
+background:#fff;
+  }/* =========================
+   ABOUT SECTION
+========================= */
+
+#about{
+padding:80px 8%;
+text-align:center;
+background:#181818;
+}
+
+#about h2{
+font-size:38px;
+color:#FFD700;
+margin-bottom:20px;
+}
+
+#about p{
+max-width:900px;
+margin:auto;
+font-size:17px;
+color:#ddd;
+line-height:1.8;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:80px 8%;
+background:#111;
+}
+
+.feature{
+background:#1f1f1f;
+padding:30px;
+border-radius:12px;
+text-align:center;
+transition:.3s;
+border:1px solid #333;
+}
+
+.feature:hover{
+transform:translateY(-8px);
+border-color:#FFD700;
+}
+
+.feature h3{
+color:#FFD700;
+margin-bottom:12px;
+font-size:24px;
+}
+
+.feature p{
+color:#ccc;
+}
+
+/* =========================
+   MENU SECTION
+========================= */
+
+.menu{
+padding:80px 8%;
+background:#181818;
+text-align:center;
+}
+
+.menu h2{
+font-size:40px;
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.menu p{
+color:#ccc;
+margin-bottom:30px;
+}
+
+#searchInput{
+width:100%;
+max-width:450px;
+padding:14px;
+border:none;
+border-radius:8px;
+margin-bottom:25px;
+font-size:16px;
+outline:none;
+}
+
+.category{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+margin-bottom:35px;
+}
+
+.category button{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#333;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.category button:hover,
+.category .active{
+background:#FFD700;
+color:#000;
+}
+
+/* =========================
+   FOOD CARDS
+========================= */
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.food-card{
+background:#222;
+border-radius:12px;
+overflow:hidden;
+transition:.3s;
+border:1px solid #333;
+}
+
+.food-card:hover{
+transform:translateY(-8px);
+border-color:#FFD700;
+}
+
+.food-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.food-card h3{
+margin:15px 0 8px;
+font-size:22px;
+color:#FFD700;
+}
+
+.food-card p{
+font-size:18px;
+font-weight:600;
+margin-bottom:15px;
+color:#fff;
+}
+
+.food-card button{
+margin-bottom:20px;
+padding:12px 22px;
+border:none;
+border-radius:8px;
+background:#FFD/* =========================
+   CART
+========================= */
+
+.cart{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.cart h2{
+font-size:38px;
+color:#FFD700;
+margin-bottom:20px;
+}
+
+#cartItems{
+max-width:700px;
+margin:auto;
+background:#222;
+padding:20px;
+border-radius:12px;
+border:1px solid #333;
+}
+
+#totalPrice{
+color:#FFD700;
+font-size:26px;
+font-weight:700;
+}
+
+#checkoutBtn{
+margin-top:25px;
+padding:14px 35px;
+border:none;
+border-radius:8px;
+background:#FFD700;
+color:#000;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#checkoutBtn:hover{
+background:#fff;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+padding:80px 8%;
+background:#181818;
+text-align:center;
+}
+
+.gallery h2{
+font-size:38px;
+color:#FFD700;
+margin-bottom:35px;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery-grid img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:12px;
+transition:.3s;
+cursor:pointer;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.05);
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.reviews h2{
+font-size:38px;
+color:#FFD700;
+margin-bottom:35px;
+}
+
+.review{
+background:#222;
+padding:25px;
+border-radius:12px;
+max-width:700px;
+margin:20px auto;
+border:1px solid #333;
+}
+
+.review h4{
+margin-top:15px;
+color:#FFD700;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+padding:80px 8%;
+background:#181818;
+text-align:center;
+}
+
+.contact h2{
+font-size:38px;
+color:#FFD700;
+margin-bottom:20px;
+}
+
+.contact p{
+margin:12px 0;
+font-size:18px;
+color:#ddd;
+}
+
+.contact button{
+margin:12px;
+padding:14px 30px;
